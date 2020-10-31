@@ -21,7 +21,7 @@ class networkmodule {
 
     ): Retrofit =
         Retrofit.Builder()
-            .baseUrl("https://programming-quotes-api.herokuapp.com/quotes/")
+            .baseUrl("https://programming-quotes-api.herokuapp.com/")
             .addConverterFactory(GsonConverterFactory.create())
 
 

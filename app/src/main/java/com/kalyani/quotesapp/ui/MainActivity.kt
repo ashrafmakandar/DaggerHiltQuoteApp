@@ -5,17 +5,19 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.kalyani.quotesapp.R
+import com.kalyani.quotesapp.viewModels
 import com.kalyani.quotesapp.viewmodel.QuoteVmodel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    val quoteVmodel:QuoteVmodel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var quoteVmodel=ViewModelProvider(this).get(QuoteVmodel::class.java)
+
         quoteVmodel.getdataquote()
         generatequote.setOnClickListener {
             quoteVmodel.getdataquote()
