@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.kalyani.quotesapp.model.Quote
 import com.kalyani.quotesapp.model.allquotesmodel.AllQuote
+import com.kalyani.quotesapp.model.allquotesmodel.AllQuoteItem
 import com.kalyani.quotesapp.network.QuoteApi
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,6 +16,8 @@ import javax.inject.Inject
 class Quotrepo @Inject constructor(var api: QuoteApi) {
     var quotes = String
     var qData = MutableLiveData<String>()
+    var listdat = MutableLiveData<List<AllQuoteItem>>()
+    var lis: ArrayList<AllQuoteItem> = arrayListOf()
     fun getdata() {
 
 
@@ -37,6 +40,15 @@ class Quotrepo @Inject constructor(var api: QuoteApi) {
         api.getallquotes().enqueue(object : Callback<AllQuote> {
             override fun onResponse(call: Call<AllQuote>, response: Response<AllQuote>) {
                 Log.d("all quotes", "onResponse: " + response.body())
+
+
+                for (ite in response.body()!!) {
+                    lis.add(ite)
+                    listdat.value = lis
+
+                }
+
+
             }
 
             override fun onFailure(call: Call<AllQuote>, t: Throwable) {
@@ -49,6 +61,10 @@ class Quotrepo @Inject constructor(var api: QuoteApi) {
 
     fun getquotes(): MutableLiveData<String> {
         return qData
+    }
+
+    fun getallquotes(): MutableLiveData<List<AllQuoteItem>> {
+        return listdat
     }
 
 }

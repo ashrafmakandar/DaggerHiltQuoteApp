@@ -7,25 +7,38 @@
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
-
-    <TextView
-        android:id="@+id/quote_from_api"
+    <RelativeLayout
+        android:id="@+id/rel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:fontFamily="monospace"
-        android:textColor="#000"
-        android:textSize="15sp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/quote_from_api"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="monospace"
+            android:textColor="#000"
+            android:textSize="15sp" />
 
 
-    <Button
-        android:id="@+id/generatequote"
+        <Button
+            android:id="@+id/generatequote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/quote_from_api"
+            android:fontFamily="serif-monospace"
+            android:text="click for quote"
+            android:textColor="#000fff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/quote_from_api"
-        android:fontFamily="serif-monospace"
-        android:text="click for quote"
-        android:textColor="#000fff"
-        android:textSize="20sp" />
+        android:layout_height="match_parent"
+        android:background="#ffddff"
+        android:layout_below="@+id/rel" />
 
 </RelativeLayout>
