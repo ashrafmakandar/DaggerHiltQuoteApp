@@ -34,11 +34,17 @@
             android:textSize="20sp" />
     </RelativeLayout>
 
+    <ProgressBar
+        android:id="@+id/rpg"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffddff"
-        android:layout_below="@+id/rel" />
+        android:layout_below="@+id/rel"
+        android:background="#ffddff" />
 
 </RelativeLayout>

@@ -5,4 +5,9 @@
         android:id="@+id/allquote"
         android:title="All Quotes"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/alltv"
+        android:title="All Tv shows"
+        app:showAsAction="ifRoom" />
+
 </menu>
